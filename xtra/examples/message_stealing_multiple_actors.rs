@@ -40,7 +40,6 @@ impl Handler<Print> for Printer {
     }
 }
 
-
 async fn run() {
     let (addr, mailbox) = Mailbox::bounded(32);
     smol::spawn(xtra::run(mailbox.clone(), Printer::new(0))).detach();
